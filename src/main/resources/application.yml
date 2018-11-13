@@ -1,0 +1,33 @@
+server:
+  port: 8091
+spring:
+    application:
+      name: admin-client-2
+    datasource:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/test
+        username: root
+        password: root
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+    thymeleaf: HTML5
+    jpa:
+      show-sql: true
+    boot:
+      admin:
+        client:
+          url: http://localhost:8090
+          username: admin
+          password: 123456
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.springbootadmin.entity
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
